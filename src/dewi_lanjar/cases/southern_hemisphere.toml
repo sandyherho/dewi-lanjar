@@ -1,0 +1,32 @@
+[case]
+name = "southern_hemisphere"
+title = "Southern Hemisphere gyre: anticlockwise but still western-intensified"
+kind = "steady"
+description = """
+A subtropical gyre in the Southern Hemisphere turns anticlockwise (the wind
+curl has the opposite sign) but beta = df/dy is still positive, so the
+boundary current still hugs the western wall, as the Agulhas, Brazil and
+East Australian currents do. Here it flows southward.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.02
+delta_m = 0.025
+bc = "no-slip"
+bc_ns = "free-slip"
+
+[wind]
+profile = "single-gyre"
+sign = -1
+
+[floats]
+n = 700
+seed = 23
+laps = 2.0
+
+[run]
+n_frames = 120

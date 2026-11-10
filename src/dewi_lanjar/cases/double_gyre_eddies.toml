@@ -1,0 +1,39 @@
+[case]
+name = "double_gyre_eddies"
+title = "Double gyre: a separating jet that sheds eddies"
+kind = "transient"
+description = """
+Subtropical and subpolar gyres driven by a double-gyre wind. The two
+western boundary currents collide at mid-basin and leave the coast as a
+free eastward jet (a barotropic analogue of the Gulf Stream and Kuroshio
+extensions). At these small friction parameters the jet is inertial and
+unstable: it meanders, strong recirculation vortices form on either side of
+it and eddies are shed, so the flow never settles to a steady state. A small
+random initial perturbation (run.init_noise) breaks the exact north-south
+antisymmetry of the forcing, which the discretization would otherwise keep.
+"""
+
+[grid]
+nx = 256
+ny = 256
+
+[physics]
+delta_s = 0.006
+delta_m = 0.015
+delta_i = 0.04
+bc = "no-slip"
+
+[wind]
+profile = "double-gyre"
+
+[run]
+t_end = 320.0
+t_record = 0.0
+n_frames = 180
+cfl = 0.7
+init_noise = 0.01
+init_seed = 1
+
+[floats]
+n = 500
+seed = 17

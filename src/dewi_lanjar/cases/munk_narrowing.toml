@@ -1,0 +1,32 @@
+[case]
+name = "munk_narrowing"
+title = "Narrowing Munk layer: weaker viscosity, sharper current"
+kind = "sweep"
+description = """
+Steady Munk solutions (no slip on the western wall) while delta_M falls by
+a factor of six. The boundary current narrows as delta_M, its peak speed
+grows as 1/delta_M, and the offshore counter-current follows the predicted
+position 2 pi delta_M / sqrt(3).
+"""
+
+[grid]
+nx = 224
+ny = 224
+
+[physics]
+delta_s = 0.0
+bc = "no-slip"
+bc_ns = "free-slip"
+
+[wind]
+profile = "single-gyre"
+
+[sweep]
+parameter = "delta_m"
+start = 0.09
+stop = 0.015
+n = 60
+scale = "log"
+
+[animation]
+fps = 16

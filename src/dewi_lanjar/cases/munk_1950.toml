@@ -1,0 +1,42 @@
+[case]
+name = "munk_1950"
+title = "Munk (1950): viscous western boundary layer with counter-current"
+kind = "steady"
+description = """
+Linear steady gyre closed by lateral friction, no slip on the western and
+eastern walls. The Munk layer of width delta_M = (A_h/beta)^(1/3)/L is
+oscillatory: the boundary current is flanked offshore by a weak southward
+counter-current, which first appears at x = 2 pi delta_M / sqrt(3). The
+southern and northern walls are free slip so the exact separable solution
+applies.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.0
+delta_m = 0.03
+bc = "no-slip"
+bc_ns = "free-slip"
+
+[wind]
+profile = "single-gyre"
+
+[floats]
+n = 700
+seed = 5
+laps = 2.0
+
+[run]
+n_frames = 120
+
+[scales]
+L = 5.0e6
+beta = 2.0e-11
+tau0 = 0.1
+rho0 = 1025.0
+H = 1000.0
+r = 0.0
+A_h = 67500.0

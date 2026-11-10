@@ -1,0 +1,33 @@
+[case]
+name = "stommel_munk_spinup"
+title = "Spin-up from rest: Rossby waves build the western boundary current"
+kind = "transient"
+description = """
+The linear Stommel-Munk ocean is started from rest under a steady wind.
+Long Rossby waves carry the Sverdrup interior westward from the eastern
+wall; where they arrive at the western wall their energy piles up into the
+boundary current. The gyre approaches the steady solution on the drag time
+1/delta_S. Floats use a kinematic delta_I = 0.04.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.02
+delta_m = 0.02
+bc = "free-slip"
+
+[wind]
+profile = "single-gyre"
+
+[run]
+t_end = 150.0
+n_frames = 150
+cfl = 0.7
+
+[floats]
+n = 700
+seed = 11
+delta_i = 0.04

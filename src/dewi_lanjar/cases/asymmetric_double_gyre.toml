@@ -1,0 +1,31 @@
+[case]
+name = "asymmetric_double_gyre"
+title = "Asymmetric double gyre: unequal gyres and their boundary currents"
+kind = "steady"
+description = """
+A double-gyre wind with an added single-gyre component (asymmetry = 0.6)
+makes the subtropical gyre stronger than the subpolar one. Each gyre has its
+own western boundary current, carrying its own Sverdrup transport; the
+diagnostics are taken in the stronger gyre.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.02
+delta_m = 0.02
+bc = "free-slip"
+
+[wind]
+profile = "asymmetric-double-gyre"
+asymmetry = 0.6
+
+[floats]
+n = 800
+seed = 29
+laps = 2.0
+
+[run]
+n_frames = 120

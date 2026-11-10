@@ -1,0 +1,36 @@
+[case]
+name = "pulsating_wind"
+title = "Pulsating wind: basin Rossby modes and an oscillating boundary current"
+kind = "transient"
+description = """
+The single-gyre wind is modulated periodically with an amplitude of 60 % and
+a period of 40 time units, comparable with the transit time of long Rossby
+waves across the basin. The interior cannot follow the wind instantaneously;
+westward-propagating Rossby waves fill the basin and the boundary-current
+transport oscillates out of phase with the local Sverdrup transport.
+"""
+
+[grid]
+nx = 160
+ny = 160
+
+[physics]
+delta_s = 0.02
+delta_m = 0.02
+bc = "free-slip"
+
+[wind]
+profile = "single-gyre"
+seasonal_amplitude = 0.6
+seasonal_period = 40.0
+
+[run]
+t_end = 240.0
+t_record = 60.0
+n_frames = 150
+cfl = 0.7
+
+[floats]
+n = 600
+seed = 19
+delta_i = 0.04

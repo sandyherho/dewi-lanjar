@@ -1,0 +1,30 @@
+[case]
+name = "beta_emergence"
+title = "Switching on beta: the birth of a western boundary current"
+kind = "sweep"
+description = """
+Steady Stommel solutions while the planetary vorticity gradient grows from
+zero (f plane, symmetric gyre) to its full value. The gyre center migrates
+west, the western current sharpens and the kinetic energy collects in a
+narrow strip; the zonal kinetic-energy entropy falls accordingly.
+"""
+
+[grid]
+nx = 160
+ny = 160
+
+[physics]
+delta_s = 0.04
+
+[wind]
+profile = "single-gyre"
+
+[sweep]
+parameter = "beta_factor"
+start = 0.0
+stop = 1.0
+n = 60
+scale = "linear"
+
+[animation]
+fps = 16

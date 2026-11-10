@@ -1,0 +1,34 @@
+[case]
+name = "inertial_gyre"
+title = "Inertial gyre: overshoot and recirculation of a nonlinear boundary current"
+kind = "transient"
+description = """
+With delta_I comparable to the frictional widths and no-slip walls, the
+boundary current carries its momentum past the latitude where the linear
+current would turn east. It overshoots northward and feeds a recirculation
+cell in the northwest of the basin, so the gyre center moves north and west
+and the boundary-current transport exceeds the Sverdrup value. Compare with
+stommel_munk_spinup (linear) and inertial_runaway (free slip).
+"""
+
+[grid]
+nx = 224
+ny = 224
+
+[physics]
+delta_s = 0.02
+delta_m = 0.02
+delta_i = 0.035
+bc = "no-slip"
+
+[wind]
+profile = "single-gyre"
+
+[run]
+t_end = 200.0
+n_frames = 160
+cfl = 0.7
+
+[floats]
+n = 800
+seed = 13

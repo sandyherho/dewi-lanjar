@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dewi-lanjar"
+version = "0.0.1"
+description = "Western boundary intensification of wind-driven ocean gyres: Stommel, Munk and inertial boundary currents with rigorous numerics, physical diagnostics and GIF animations"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+  {name = "Sandy H. S. Herho", email = "sandyherho@itb.ac.id"},
+  {name = "Rima Rachmayani"},
+  {name = "Rusmawan Suwarman"},
+  {name = "Dasapta E. Irawan"},
+]
+keywords = ["oceanography", "western boundary current", "Stommel", "Munk", "Sverdrup",
+            "barotropic vorticity equation", "geophysical fluid dynamics", "education"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Education",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "matplotlib>=3.6",
+  "pillow>=9.1",
+  "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "hypothesis>=6", "mpmath>=1.3"]
+docs = ["sphinx>=7", "furo>=2023.9.10", "myst-parser>=2"]
+
+[project.scripts]
+dewi-lanjar = "dewi_lanjar.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sandyherho/dewi-lanjar"
+Documentation = "https://dewi-lanjar.readthedocs.io"
+Source = "https://github.com/sandyherho/dewi-lanjar"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dewi_lanjar = ["cases/*.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = ["slow: long-running tests (deselect with -m 'not slow')"]

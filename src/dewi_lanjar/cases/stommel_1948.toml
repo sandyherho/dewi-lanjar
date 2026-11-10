@@ -1,0 +1,39 @@
+[case]
+name = "stommel_1948"
+title = "Stommel (1948): westward intensification by bottom drag"
+kind = "steady"
+description = """
+Linear steady gyre closed by bottom drag only. The interior obeys the
+Sverdrup balance beta*v = curl(tau); the western boundary layer of width
+delta_S = r/(beta L) returns the interior transport northward. The exact
+separable solution (Stommel 1948) is computed alongside the numerical one.
+Dimensional values are derived from the [scales] section.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+from_scales = true
+bc = "free-slip"
+
+[wind]
+profile = "single-gyre"
+
+[floats]
+n = 700
+seed = 3
+laps = 2.0
+
+[run]
+n_frames = 120
+
+[scales]
+L = 5.0e6
+beta = 2.0e-11
+r = 4.0e-6
+A_h = 0.0
+tau0 = 0.1
+rho0 = 1025.0
+H = 1000.0

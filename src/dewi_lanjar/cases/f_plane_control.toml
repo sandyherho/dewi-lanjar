@@ -1,0 +1,29 @@
+[case]
+name = "f_plane_control"
+title = "f-plane control: no beta, no western intensification"
+kind = "steady"
+description = """
+The same wind and drag as the Stommel case but with beta_factor = 0. The
+planetary vorticity gradient is what breaks the east-west symmetry; without
+it the gyre is symmetric, the intensification index is one and the
+kinetic-energy centroid sits at the middle of the basin.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.04
+beta_factor = 0.0
+
+[wind]
+profile = "single-gyre"
+
+[floats]
+n = 700
+seed = 3
+laps = 2.0
+
+[run]
+n_frames = 120

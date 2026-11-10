@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "dewi-lanjar: western boundary intensification of wind-driven ocean gyres"
+version: 0.0.1
+date-released: 2026-11-09
+license: MIT
+repository-code: "https://github.com/sandyherho/dewi-lanjar"
+url: "https://dewi-lanjar.readthedocs.io"
+authors:
+  - family-names: Herho
+    given-names: "Sandy H. S."
+    email: sandyherho@itb.ac.id
+    affiliation: "Applied Geology Research Group, Bandung Institute of Technology"
+  - family-names: Rachmayani
+    given-names: Rima
+  - family-names: Suwarman
+    given-names: Rusmawan
+  - family-names: Irawan
+    given-names: "Dasapta E."
+keywords:
+  - oceanography
+  - western boundary current
+  - Stommel
+  - Munk
+  - Sverdrup balance
+  - barotropic vorticity equation

@@ -1,0 +1,35 @@
+[case]
+name = "inertial_runaway"
+title = "Inertial runaway: free-slip walls let the gyre fill the basin"
+kind = "transient"
+description = """
+With free-slip walls and an inertial width larger than the Munk width the
+boundary current no longer stays at the coast. The circulation grows into a
+basin-filling inertial mode close to the Fofonoff free solution
+(q = dI^2 zeta + b y nearly a linear function of psi), the kinetic energy
+keeps rising long after the linear spin-up time and the western
+intensification is lost. Compare with inertial_gyre, which differs mainly
+by no-slip walls.
+"""
+
+[grid]
+nx = 192
+ny = 192
+
+[physics]
+delta_s = 0.01
+delta_m = 0.018
+delta_i = 0.04
+bc = "free-slip"
+
+[wind]
+profile = "single-gyre"
+
+[run]
+t_end = 240.0
+n_frames = 160
+cfl = 0.7
+
+[floats]
+n = 800
+seed = 13
